@@ -1,0 +1,41 @@
+<!--bootstrap-->
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer type="text/javascript" src="js/main.js"></script>
+</head>
+<div id="target"></div>
+<div class="bg-light-gray p-3"></div>
+<div class="bg-blue">
+    <h3 class="text-white text-center">Battery Finder Program</h3>
+</div>
+<div class="container-fluid">
+    <div class="col-12">
+        <label for="brand">step1: Select your brand</label>
+        <select id="brand" name="brand">
+            <option value="0">Select Brand</option>
+        </select>
+    </div>
+    <div class="col-12">
+        <label for="model">step2: Select your Model</label>
+        <select id="model" name="model">
+            <option value="0">Select Model</option>
+        </select>
+    </div>
+    <div class="col-12">
+        <label for="power">step3: Input Accessory Power Consumption</label>
+        <input id="power">W
+    </div>
+    <div class="col-12 pb-5">
+        <label>step4: Choose Your Battery</label>
+        <ul id="battery" class="list-group">
+            <li class="d-flex list-group-item">
+                <div class="col-12 text-center">
+                    There was no corresponding battery
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="bg-light-gray p-3"></div>
