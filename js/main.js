@@ -215,7 +215,7 @@ changeBrand.addEventListener("change", function(){
 changeModel.addEventListener("change", function(){
     if(changeModel.value === "0"){
         controller.deleteBatteryList();
-        controller.addInitList("There was no corresponding battery");
+        controller.addInitList(`please select "Model"`);
     }else{
         inputPower.value = 0;
         controller.showBatteries(changeBrand.value, changeModel.value, 0);
