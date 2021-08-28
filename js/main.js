@@ -12,9 +12,8 @@ class Battery {
     finallyCadenceVoltage(){
         return this.maximumDischargeCurrent * this.cadenceVoltage;
     }
-    continueBattery(cameraPower, accePower){
-        cameraPower += accePower;
-        return (Math.floor((this.electricCapacity() / cameraPower ) * 10)) / 10;
+    continueBattery(cameraPower){
+        return (Math.floor((this.electricCapacity() / cameraPower) * 10)) / 10;
     }
 }
 class Camera {
@@ -101,7 +100,7 @@ class Controller {
 
         for(let i = 0; i < this.batteries.length; i++){
             if(this.batteries[i].finallyCadenceVoltage() > cameraPower){
-                this.createBatteryList(this.batteries[i].batteryName, this.batteries[i].continueBattery(cameraPower, accePower));
+                this.createBatteryList(this.batteries[i].batteryName, this.batteries[i].continueBattery(cameraPower));
                 checkBattery = true;
             }
         }
@@ -208,12 +207,19 @@ controller.showBrand();
 
 changeBrand.addEventListener("change", function(){
     controller.deleteModel();
+    controller.deleteBatteryList();
+    controller.addInitList("There was no corresponding battery");
     controller.showModel(changeBrand.value);
 });
 
 changeModel.addEventListener("change", function(){
-    inputPower.value = 0;
-    controller.showBatteries(changeBrand.value, changeModel.value, 0);
+    if(changeModel.value === "0"){
+        controller.deleteBatteryList();
+        controller.addInitList("There was no corresponding battery");
+    }else{
+        inputPower.value = 0;
+        controller.showBatteries(changeBrand.value, changeModel.value, 0);
+    }
 });
 
 inputPower.addEventListener("input", function(){
