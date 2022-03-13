@@ -70,7 +70,7 @@ class Controller {
         let models        = document.getElementById("model");
         let modelsLength  = models.length;
 
-        // 子要素が流動的に変化するため、配列の1番目を削除
+        // Delete the first element of the array because the child elements are fluidly changing
         for(let i = 0; i < modelsLength; i++){
             models.remove(DELETE_ITEM);
         }
@@ -105,7 +105,7 @@ class Controller {
             }
         }
 
-        // 対象のバッテリーなし
+        // not found battery
         if(checkBattery === false) {
             this.deleteBatteryList();
             this.addInitList("There was no corresponding battery");
