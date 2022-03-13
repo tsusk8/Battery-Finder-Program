@@ -1,10 +1,10 @@
 class Battery {
     constructor(batteryName, capacity, voltage, maximumDischargeCurrent, cadenceVoltage){
-        this.batteryName = batteryName;
-        this.capacity = capacity;
-        this.voltage = voltage;
+        this.batteryName             = batteryName;
+        this.cadenceVoltage          = cadenceVoltage;
+        this.capacity                = capacity;
+        this.voltage                 = voltage;
         this.maximumDischargeCurrent = maximumDischargeCurrent;
-        this.cadenceVoltage = cadenceVoltage;
     }
     electricCapacity(){
         return this.voltage * this.capacity;
@@ -18,15 +18,15 @@ class Battery {
 }
 class Camera {
     constructor(maker, productName, powerConsumption){
-        this.maker = maker;
-        this.productName = productName;
+        this.maker            = maker;
+        this.productName      = productName;
         this.powerConsumption = powerConsumption;
     }
 }
 class Controller {
     constructor(batteries, cameras){
         this.batteries = this.sortBatteries(batteries);
-        this.cameras = cameras;
+        this.cameras   = cameras;
     }
     sortBatteries(batteries){
         batteries.sort(function(a,b){
@@ -39,36 +39,36 @@ class Controller {
     }
     showBrand(){
         const brands = document.getElementById("brand");
-        let option = "";
-        let hashmap = new Map();
+        let option   = "";
+        let hashmap  = new Map();
 
         for(let i = 0; i < this.cameras.length; i++){
             if(hashmap.has(cameras[i].maker) === true) continue;
 
             hashmap.set(cameras[i].maker);
-            option = document.createElement("option");
-            option.text = cameras[i].maker;
+            option       = document.createElement("option");
+            option.text  = cameras[i].maker;
             option.value = cameras[i].maker;
             brands.appendChild(option);
         }
     }
     showModel(cameraBrand){
         const models = document.getElementById("model");
-        let option = "";
+        let option   = "";
 
         for(let i = 0; i < this.cameras.length; i++){
             if(cameras[i].maker !== cameraBrand) continue;
 
-            option = document.createElement("option");
-            option.text = cameras[i].productName;
+            option       = document.createElement("option");
+            option.text  = cameras[i].productName;
             option.value = cameras[i].productName;
             models.appendChild(option);
         }
     }
     deleteModel(){
         const DELETE_ITEM = 1;
-        let models = document.getElementById("model");
-        let modelsLength = models.length;
+        let models        = document.getElementById("model");
+        let modelsLength  = models.length;
 
         // 子要素が流動的に変化するため、配列の1番目を削除
         for(let i = 0; i < modelsLength; i++){
@@ -112,7 +112,7 @@ class Controller {
         }
     }
     createBatteryList(productName, continueHour){
-        let ulItem = document.getElementById("battery");
+        let ulItem   = document.getElementById("battery");
         let liParent = document.createElement("li");
         liParent.classList.add("d-flex", "list-group-item");
 
